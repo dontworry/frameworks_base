@@ -1,5 +1,9 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
+<<<<<<< HEAD
+=======
+ * Copyright (C) 2010-2011 CyanogenMod Project
+>>>>>>> 0620b6b... Generate screenshot intent from global actions menu
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -197,6 +201,38 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                 mSilentModeToggle,
                 // next: airplane mode
                 mAirplaneModeOn,
+<<<<<<< HEAD
+=======
+                // next: choose profile
+                new ProfileChooseAction() {
+                    public void onPress() {
+                        createProfileDialog();
+                    }
+
+                    public boolean showDuringKeyguard() {
+                        return false;
+                    }
+
+                    public boolean showBeforeProvisioning() {
+                        return false;
+                    }
+                },
+                // next: screenshot
+                new SinglePressAction(com.android.internal.R.drawable.ic_lock_screenshot, R.string.global_action_screenshot) {
+                    public void onPress() {
+                        Intent intent = new Intent("android.intent.action.SCREENSHOT");
+                        mContext.sendBroadcast(intent);
+                    }
+
+                    public boolean showDuringKeyguard() {
+                        return true;
+                    }
+
+                    public boolean showBeforeProvisioning() {
+                        return true;
+                    }
+                },
+>>>>>>> 0620b6b... Generate screenshot intent from global actions menu
                 // next: reboot
                 new SinglePressAction(com.android.internal.R.drawable.ic_lock_reboot, R.string.global_action_reboot) {
                     public void onPress() {
