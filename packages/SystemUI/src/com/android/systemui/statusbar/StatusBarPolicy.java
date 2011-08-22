@@ -116,8 +116,14 @@ public class StatusBarPolicy {
     private boolean mBatteryShowLowOnEndCall = false;
     private static final boolean SHOW_LOW_BATTERY_WARNING = true;
     private static final boolean SHOW_BATTERY_WARNINGS_IN_CALL = true;
+<<<<<<< HEAD
 	
 	private int mBatteryStyle;
+=======
+
+    private int mBatteryStyle;
+    private int mBatteryStyle2;
+>>>>>>> 5a95cbe... overscroll effect, weight, color; 2nd battery options; enable/disable  statusbar brightness
     private boolean mHideSignal;
     private boolean mHideAlarm;
 
@@ -798,9 +804,16 @@ public class StatusBarPolicy {
         }
       mBatteryStyle = (Settings.System
                 .getInt(resolver, Settings.System.STATUSBAR_BATTERY_STYLE, 0));
+      mBatteryStyle2 = (Settings.System
+                .getInt(resolver, Settings.System.STATUSBAR_BATTERY_STYLE2, 0));
     
+<<<<<<< HEAD
       if(mBatteryStyle != 0){
 		mService.setIconVisibility("battery", false);
+=======
+      if(mBatteryStyle != 0 && mBatteryStyle2 != 0){
+	mService.setIconVisibility("battery", false);
+>>>>>>> 5a95cbe... overscroll effect, weight, color; 2nd battery options; enable/disable  statusbar brightness
       }else{
 		mService.setIconVisibility("battery", true);
       }

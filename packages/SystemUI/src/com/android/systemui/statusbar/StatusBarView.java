@@ -73,6 +73,8 @@ public class StatusBarView extends FrameLayout {
             resolver.registerContentObserver(
                     Settings.System.getUriFor(Settings.System.STATUSBAR_BATTERY_STYLE), false, this);
             resolver.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.STATUSBAR_BATTERY_STYLE2), false, this);
+            resolver.registerContentObserver(
                     Settings.System.getUriFor(Settings.System.BATTERY_AUTO_COLOR), false, this);
             resolver.registerContentObserver(
                     Settings.System.getUriFor(Settings.System.BATTERY_COLOR_AUTO_CHARGING), false, this);
@@ -170,6 +172,12 @@ public class StatusBarView extends FrameLayout {
 		
 		int mShowBatteryIndicator;
 
+<<<<<<< HEAD
+=======
+	int mShowBatteryIndicator;
+	int mShowBatteryIndicator2;	
+	
+>>>>>>> 5a95cbe... overscroll effect, weight, color; 2nd battery options; enable/disable  statusbar brightness
         newDateRight = getDateSize(mNotificationIcons, oldDateRight,
                 getViewOffset(mNotificationIcons));
         if (newDateRight < 0) {
@@ -194,9 +202,16 @@ public class StatusBarView extends FrameLayout {
 	
         mShowBatteryIndicator = (Settings.System
                 .getInt(resolver, Settings.System.STATUSBAR_BATTERY_STYLE, 0));
+        mShowBatteryIndicator2 = (Settings.System
+                .getInt(resolver, Settings.System.STATUSBAR_BATTERY_STYLE2, 0));
 	
+<<<<<<< HEAD
 		if(mShowBatteryIndicator == 1){
 				mBatteryIndicator.setVisibility(VISIBLE);
+=======
+	if(mShowBatteryIndicator == 1 || mShowBatteryIndicator2 == 1){
+	    mBatteryIndicator.setVisibility(VISIBLE);
+>>>>>>> 5a95cbe... overscroll effect, weight, color; 2nd battery options; enable/disable  statusbar brightness
 
         mBatteryAutoColor = (Settings.System
                 .getInt(resolver, Settings.System.BATTERY_AUTO_COLOR, 0) == 1);
@@ -302,12 +317,23 @@ public class StatusBarView extends FrameLayout {
     private void updateSettings() {
       ContentResolver resolver = mContext.getContentResolver();
 
+<<<<<<< HEAD
       int mShowBatteryIndicator = (Settings.System
               .getInt(resolver, Settings.System.STATUSBAR_BATTERY_STYLE, 0));
 
 	  if(mShowBatteryIndicator == 1){
 	       Intent batteryIntent = mContext.getApplicationContext().registerReceiver(null,
 		   new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+=======
+        int mShowBatteryIndicator = (Settings.System
+                .getInt(resolver, Settings.System.STATUSBAR_BATTERY_STYLE, 0));
+        int mShowBatteryIndicator2 = (Settings.System
+                .getInt(resolver, Settings.System.STATUSBAR_BATTERY_STYLE2, 0));
+
+	if(mShowBatteryIndicator == 1 || mShowBatteryIndicator2 == 1){
+	    Intent batteryIntent = mContext.getApplicationContext().registerReceiver(null,
+	    new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+>>>>>>> 5a95cbe... overscroll effect, weight, color; 2nd battery options; enable/disable  statusbar brightness
 	    
 		   boolean plugged = batteryIntent.getIntExtra("plugged", 0) != 0;
 

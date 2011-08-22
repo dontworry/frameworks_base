@@ -1124,6 +1124,7 @@ public final class Settings {
 	* 	@hide
 	*/
 
+<<<<<<< HEAD
 	    public static final String STATUSBAR_CLOCK_STYLE = "statusbar_clock_style";
 	    public static final String STATUSBAR_SHOW_DBM = "statusbar_show_dbm";
 	    public static final String STATUSBAR_CLOCK_COLOR = "statusbar_clock_color"; 
@@ -1160,6 +1161,46 @@ public final class Settings {
 	    public static final String EXP_SCREENTIMEOUT_MODE = "pref_screentimeout_mode";
 	    public static final String EXP_RING_MODE = "pref_ring_mode";
 	    public static final String EXP_FLASH_MODE = "pref_flash_mode";
+=======
+	public static final String STATUSBAR_CLOCK_STYLE = "statusbar_clock_style";
+	public static final String STATUSBAR_SHOW_DBM = "statusbar_show_dbm";
+	public static final String STATUSBAR_CLOCK_COLOR = "statusbar_clock_color"; 
+	public static final String HIDE_SIGNAL_ICON = "hide_signal_icon";
+	public static final String STATUSBAR_BATTERY_STYLE = "statusbar_battery_style";
+	public static final String STATUSBAR_BATTERY_STYLE2 = "statusbar_battery_style2";
+	public static final String STATUSBAR_HIDE_ALARM = "statusbar_hide_alarm";
+	public static final String STATUSBAR_DATECLOCK = "statusbar_dateclock";
+	public static final String STATUSBAR_CARRIER_TEXT = "statusbar_carrier_text";
+	public static final String STATUSBAR_CARRIER_COLOR = "statusbar_carrier_color";
+	public static final String STATUSBAR_BRIGHTNESS_DISABLE = "statusbar_brightness_disable";
+	public static final String HIDE_ADB_ICON = "hide_adb_icon";
+	public static final String BATTERY_OPTIONS = "battery_options";
+	public static final String DATECLOCK_COLOR = "dateclock_color";
+	public static final String BATTERY_AUTO_COLOR = "battery_auto_color";
+	public static final String BATTERY_COLOR_AUTO_CHARGING = "battery_color_auto_charging"; 
+	public static final String BATTERY_COLOR_AUTO_REGULAR = "battery_color_auto_regular";
+	public static final String BATTERY_COLOR_AUTO_MEDIUM = "battery_color_auto_medium";
+	public static final String BATTERY_COLOR_AUTO_LOW = "battery_color_auto_low";
+	public static final String BATTERY_COLOR = "battery_color"; 
+	public static final String KEYLIGHT_TIMEOUT = "keylight_timeout";
+	public static final String PHONE_TYPE_KEY = "phone_type_key";
+	public static final String LOCKSCREEN_CUSTOM_APP_ACTIVITY = "lockscreen_custom_app_activity";
+	public static final String LOCKSCREEN_VOLUME_WAKE = "lockscreen_volume_wake";
+	public static final String LOCKSCREEN_DISABLE = "lockscreen_disable";
+	public static final String LOCKSCREEN_ALWAYS_MUSIC_CONTROLS = "lockscreen_always_music_controls";
+	public static final String LOCKSCREEN_MUSIC_CONTROLS = "lockscreen_music_controls";
+	public static final String LOCKSCREEN_TYPE_KEY = "lockscreen_type_key";
+	public static final String LOCKSCREEN_CUSTOM_MSG = "lockscreen_custom_msg";
+	public static final String LOCKSCREEN_TIMEOUT_PREF = "lockscreen_timeout_pref";
+	public static final String LOCKSCREEN_BATTERY_INFO = "lockscreen_battery_info";
+	public static final String DBM_COLOR = "dbm_color";
+	public static final String STATUSBAR_CLOCK_POSITION = "statusbar_clock_position";
+	public static final String EXP_BRIGHTNESS_MODE = "pref_brightness_mode";
+	public static final String EXP_NETWORK_MODE = "pref_network_mode";
+	public static final String EXP_SCREENTIMEOUT_MODE = "pref_screentimeout_mode";
+	public static final String EXP_RING_MODE = "pref_ring_mode";
+	public static final String EXP_FLASH_MODE = "pref_flash_mode";
+>>>>>>> 5a95cbe... overscroll effect, weight, color; 2nd battery options; enable/disable  statusbar brightness
         public static final String EXPANDED_VIEW_WIDGET = "expanded_view_widget";
         public static final String EXPANDED_HIDE_ONCHANGE = "expanded_hide_onchange";
         public static final String EXPANDED_HIDE_SCROLLBAR = "expanded_hide_scrollbar";
@@ -1175,6 +1216,9 @@ public final class Settings {
         public static final String TORCH_STATE = "torch_state";
         public static final String LIGHT_SENSOR_CUSTOM = "light_sensor_custom";
         public static final String LIGHT_SCREEN_DIM = "light_screen_dim";
+        public static final String OVERSCROLL_EFFECT = "overscroll_effect";
+	public static final String OVERSCROLL_WEIGHT = "overscroll_weight";
+	public static final String OVERSCROLL_COLOR = "overscroll_color";
 	
 
 
