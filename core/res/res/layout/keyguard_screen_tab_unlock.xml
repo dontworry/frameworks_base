@@ -25,10 +25,14 @@
     xmlns:tabunlock="http://schemas.android.com/apk/res/com.android.tabunlock"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#70000000"
     android:gravity="center_horizontal"
     android:id="@+id/root">
+<<<<<<< HEAD
 
+=======
+    <RelativeLayout android:id="@+id/wallpaper_panel" android:layout_width="fill_parent" android:layout_height="fill_parent">
+    
+>>>>>>> 814579a... fix lockscreen wallpaper, add rotary rev and lense locks
     <TextView
         android:id="@+id/customMsg"
         android:layout_width="wrap_content"
@@ -230,7 +234,12 @@
             android:layout_toRightOf="@+id/musicControlPause"
             android:background="@color/transparent"
             android:visibility="gone"
+<<<<<<< HEAD
 	        />
 
+=======
+	      />
+	    </RelativeLayout>
+>>>>>>> 814579a... fix lockscreen wallpaper, add rotary rev and lense locks
 </RelativeLayout>
 
