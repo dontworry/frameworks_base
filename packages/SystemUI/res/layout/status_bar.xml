@@ -144,11 +144,11 @@
         />
 		
     <SeekBar android:id="@+id/statusbar_brightness" 
-		android:visibility="gone" 
-		android:layout_width="fill_parent" 
-		android:layout_height="fill_parent" 
-		android:indeterminateDrawable="@null" 
-		android:progressDrawable="@null" 
-		android:thumb="@null" />
+	android:visibility="gone" 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent" 
+	android:indeterminateDrawable="@null" 
+	android:progressDrawable="@null" 
+	android:thumb="@null" />
 
 </com.android.systemui.statusbar.StatusBarView>

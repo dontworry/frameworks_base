@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-**
-** Copyright 2009, The Android Open Source Project
+<!-- ** ** Copyright 2009, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License")
 ** you may not use this file except in compliance with the License.
@@ -27,12 +25,8 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:id="@+id/root">
-<<<<<<< HEAD
-
-=======
     <RelativeLayout android:id="@+id/wallpaper_panel" android:layout_width="fill_parent" android:layout_height="fill_parent">
-    
->>>>>>> 814579a... fix lockscreen wallpaper, add rotary rev and lense locks
+
     <TextView
         android:id="@+id/customMsg"
         android:layout_width="wrap_content"
@@ -234,12 +228,7 @@
             android:layout_toRightOf="@+id/musicControlPause"
             android:background="@color/transparent"
             android:visibility="gone"
-<<<<<<< HEAD
-	        />
-
-=======
-	      />
+              />
 	    </RelativeLayout>
->>>>>>> 814579a... fix lockscreen wallpaper, add rotary rev and lense locks
 </RelativeLayout>
 

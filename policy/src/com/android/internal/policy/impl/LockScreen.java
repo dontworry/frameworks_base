@@ -257,15 +257,6 @@ class LockScreen extends LinearLayout implements KeyguardScreen, KeyguardUpdateM
         mCarrier.setSelected(true);
         mCarrier.setTextColor(0xffffffff);
 		
-		mMainLayout = (RelativeLayout) findViewById(R.id.root);
-
-<<<<<<< HEAD
-		mCustomMsg = (TextView) findViewById(R.id.customMsg);
-		String r = (Settings.System.getString(resolver, Settings.System.LOCKSCREEN_CUSTOM_MSG));
-		mCustomMsg.setSelected(true);
-		mCustomMsg.setText(r);
-		mCustomMsg.setTextColor(0xffffffff);	
-=======
 	mMainLayout = (RelativeLayout) findViewById(R.id.wallpaper_panel);
 
 	mCustomMsg = (TextView) findViewById(R.id.customMsg);
@@ -273,7 +264,6 @@ class LockScreen extends LinearLayout implements KeyguardScreen, KeyguardUpdateM
 	mCustomMsg.setSelected(true);
 	mCustomMsg.setText(r);
 	mCustomMsg.setTextColor(0xffffffff);	
->>>>>>> 814579a... fix lockscreen wallpaper, add rotary rev and lense locks
 
         mClock = (DigitalClock) findViewById(R.id.time);
         mTime = (TextView) findViewById(R.id.timeDisplay);
@@ -282,7 +272,7 @@ class LockScreen extends LinearLayout implements KeyguardScreen, KeyguardUpdateM
         mStatus1 = (TextView) findViewById(R.id.status1);
         mStatus2 = (TextView) findViewById(R.id.status2);
 		
-		mPlayIcon = (ImageButton) findViewById(R.id.musicControlPlay);
+	mPlayIcon = (ImageButton) findViewById(R.id.musicControlPlay);
         mPauseIcon = (ImageButton) findViewById(R.id.musicControlPause);
         mRewindIcon = (ImageButton) findViewById(R.id.musicControlPrevious);
         mForwardIcon = (ImageButton) findViewById(R.id.musicControlNext);
@@ -290,15 +280,9 @@ class LockScreen extends LinearLayout implements KeyguardScreen, KeyguardUpdateM
         mScreenLocked = (TextView) findViewById(R.id.screenLocked);
         mRotarySelector = (RotarySelector) findViewById(R.id.rotary_selector);
 
-<<<<<<< HEAD
-		mLockscreenWallpaperUpdater = new LockscreenWallpaperUpdater(context);
-		mLockscreenWallpaperUpdater.setVisibility(View.GONE);
-		mMainLayout.addView(mLockscreenWallpaperUpdater);
-=======
 	mLockscreenWallpaperUpdater = new LockscreenWallpaperUpdater(context);
 	mLockscreenWallpaperUpdater.setVisibility(View.VISIBLE);
 	mMainLayout.addView(mLockscreenWallpaperUpdater,0);
->>>>>>> 814579a... fix lockscreen wallpaper, add rotary rev and lense locks
 
         mEmergencyCallText = (TextView) findViewById(R.id.emergencyCallText);
         mEmergencyCallButton = (Button) findViewById(R.id.emergencyCallButton);
