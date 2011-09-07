@@ -29,7 +29,12 @@ import android.graphics.ImageFormat;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+<<<<<<< HEAD
 import android.text.TextUtils;
+=======
+import android.content.pm.PackageManager;
+import android.content.Context;
+>>>>>>> 2cb1eca... tw cam, recent apps, lock txt align, fix always battery, longpress back
 
 /**
  * The Camera class is used to set image capture settings, start/stop preview,
@@ -138,7 +143,7 @@ public class Camera {
     private ErrorCallback mErrorCallback;
     private boolean mOneShot;
     private boolean mWithBuffer;
-
+	
     /**
      * Returns the number of physical cameras available on this device.
      */
@@ -273,6 +278,11 @@ public class Camera {
      */
     public final void release() {
         native_release();
+    }
+
+    /** For TW Camera         - sbrissen   */
+    public static boolean checkCameraEnabled(){
+      return true;
     }
 
     /**

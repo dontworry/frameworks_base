@@ -817,6 +817,9 @@ public class WebView extends AbsoluteLayout
     //Wysie
     private boolean showZoomControls = true;
 
+    //Wysie
+    private boolean showZoomControls = true;
+
     // Used to notify listeners of a new picture.
     private PictureListener mPictureListener;
     /**
@@ -988,6 +991,11 @@ public class WebView extends AbsoluteLayout
         updateMultiTouchSupport(context);
     }
     
+    //Wysie
+    void showZoomControls(boolean value) {
+        showZoomControls = value;
+    }
+
     //Wysie
     void showZoomControls(boolean value) {
         showZoomControls = value;

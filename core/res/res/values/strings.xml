@@ -2380,9 +2380,20 @@
     <string name="media_shared" product="default">SD card is currently in use by a computer.</string>
     <!-- Text for message for an unknown external media state [CHAR LIMIT=NONE] -->
     <string name="media_unknown_state">External media in unknown state.</string>
+<<<<<<< HEAD
 	
 	<string name="lockscreen_discharging">Battery (<xliff:g id="number">%d</xliff:g><xliff:g id="percent">%%</xliff:g>)</string>
 		<string name="lockscreen_phone_label">Phone</string>
 		<string name="lockscreen_tsm_label">TSM</string>
 
+=======
+    
+    <string name="lockscreen_discharging">Battery (<xliff:g id="number">%d</xliff:g><xliff:g id="percent">%%</xliff:g>)</string>
+	<string name="lockscreen_phone_label">Phone</string>
+	<string name="lockscreen_tsm_label">TSM</string>	
+	<string name="lockscreen_one_missed_call_count">1 missed call</string>
+    <string name="lockscreen_one_unread_message_count">1 unread message</string>
+    <string name="lockscreen_n_missed_calls_count">%1$d missed calls</string>
+    <string name="lockscreen_n_unread_messages_count">%1$d unread messages</string>
+>>>>>>> 2cb1eca... tw cam, recent apps, lock txt align, fix always battery, longpress back
 </resources>
