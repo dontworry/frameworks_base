@@ -1182,10 +1182,6 @@ public final class Settings {
 	public static final String OVERSCROLL_COLOR = "overscroll_color";
 	public static final String CUSTOM_SEARCH_APP = "custom_search_app";
 	public static final String LOCKSCREEN_ROTARY_UNLOCK_DOWN = "lockscreen_rotary_unlock_down";
-<<<<<<< HEAD
-
-
-=======
 	public static final String KEY_CITY_NAME = "CITY_NAME";
 	public static final String KEY_UPDATED_TIME = "aw_daemon_service_key_updated_time";
 	public static final String KEY_CURRENT_TEMP = "aw_daemon_service_key_current_temp";
@@ -1201,7 +1197,6 @@ public final class Settings {
 	public static final String KEY_DAEMON_ON_OFF = "aw_daemon_service_key_service_status";
 	public static final String NUM_RECENT_APPS = "num_recent_apps";
 	
->>>>>>> 2cb1eca... tw cam, recent apps, lock txt align, fix always battery, longpress back
         /**
          * Whether to allow killing of the foreground process by long-pressing
          * the device's BACK button.

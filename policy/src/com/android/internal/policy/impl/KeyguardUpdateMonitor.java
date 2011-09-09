@@ -346,11 +346,7 @@ public class KeyguardUpdateMonitor {
             return true;
         }
 
-<<<<<<< HEAD
         // change in battery level
-=======
-        // change in battery level while plugged in
->>>>>>> 2cb1eca... tw cam, recent apps, lock txt align, fix always battery, longpress back
         if (mBatteryLevel != batteryLevel) {
             return true;
         }

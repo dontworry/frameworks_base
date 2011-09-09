@@ -124,14 +124,10 @@ class LockScreen extends LinearLayout implements KeyguardScreen, KeyguardUpdateM
     private String mDateFormatString;
     private java.text.DateFormat mTimeFormat;
     private boolean mEnableMenuKeyInLockScreen;
-<<<<<<< HEAD
-	
-=======
 
     private boolean mShowingInfo = (Settings.System.getInt(mContext.getContentResolver(),
             Settings.System.LOCKSCREEN_SHOW_INFO, 0) == 1);
 
->>>>>>> 2cb1eca... tw cam, recent apps, lock txt align, fix always battery, longpress back
     private boolean mLockAlwaysBattery = (Settings.System.getInt(mContext.getContentResolver(),
             Settings.System.LOCKSCREEN_BATTERY_INFO, 0) == 1);
 
@@ -286,10 +282,8 @@ class LockScreen extends LinearLayout implements KeyguardScreen, KeyguardUpdateM
         mDate = (TextView) findViewById(R.id.date);
         mStatus1 = (TextView) findViewById(R.id.status1);
         mStatus2 = (TextView) findViewById(R.id.status2);
-<<<<<<< HEAD
 		
 	mPlayIcon = (ImageButton) findViewById(R.id.musicControlPlay);
-=======
 	
 	if(mClockAlign == 0){
 	  mClock.setGravity(Gravity.LEFT);  
@@ -309,7 +303,6 @@ class LockScreen extends LinearLayout implements KeyguardScreen, KeyguardUpdateM
 	}
 
         mPlayIcon = (ImageButton) findViewById(R.id.musicControlPlay);
->>>>>>> 2cb1eca... tw cam, recent apps, lock txt align, fix always battery, longpress back
         mPauseIcon = (ImageButton) findViewById(R.id.musicControlPause);
         mRewindIcon = (ImageButton) findViewById(R.id.musicControlPrevious);
         mForwardIcon = (ImageButton) findViewById(R.id.musicControlNext);
@@ -946,14 +939,9 @@ class LockScreen extends LinearLayout implements KeyguardScreen, KeyguardUpdateM
     public void onResume() {
         resetStatusInfo(mUpdateMonitor);
         mLockPatternUtils.updateEmergencyCallButtonState(mEmergencyCallButton);
-<<<<<<< HEAD
-				mLockscreenWallpaperUpdater.onResume();
-    	}
-=======
-		mLockscreenWallpaperUpdater.onResume();
+	mLockscreenWallpaperUpdater.onResume();
 	mLockscreenInfo.onResume();
     }
->>>>>>> 2cb1eca... tw cam, recent apps, lock txt align, fix always battery, longpress back
 
     /** {@inheritDoc} */
     public void cleanUp() {
@@ -961,12 +949,8 @@ class LockScreen extends LinearLayout implements KeyguardScreen, KeyguardUpdateM
         mLockPatternUtils = null;
         mUpdateMonitor = null;
         mCallback = null;
-<<<<<<< HEAD
-		mLockscreenWallpaperUpdater.cleanUp();
-=======
-	mLockscreenWallpaperUpdater.cleanUp();
+        mLockscreenWallpaperUpdater.cleanUp();
 	mLockscreenInfo.cleanUp();
->>>>>>> 2cb1eca... tw cam, recent apps, lock txt align, fix always battery, longpress back
     }
 
     /** {@inheritDoc} */

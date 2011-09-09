@@ -432,11 +432,6 @@ public class WebSettings {
         mWebView.showZoomControls(value);
     }
 
-    //Wysie    
-    public void showZoomControls(boolean value) {
-        mWebView.showZoomControls(value);
-    }
-
     /**
      * Set whether the WebView supports zoom
      */
