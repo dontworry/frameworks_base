@@ -531,8 +531,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
     };
 
-<<<<<<< HEAD
-=======
     Runnable mBackLongPress = new Runnable() {
         public void run() {
             if (Settings.Secure.getInt(mContext.getContentResolver(),
@@ -559,7 +557,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             }
         }
     };
->>>>>>> 40a5718... Kill foreground process by long-pressing BACK
 
     /**
      * When a volumeup-key longpress expires, skip songs based on key press
