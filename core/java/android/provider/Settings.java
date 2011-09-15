@@ -1833,6 +1833,13 @@ public final class Settings {
          */
         public static final String UNLOCK_SOUND = "unlock_sound";
 
+	/**
+	 * Sets Launcher to continuously loop from one end of the 
+	 * workspace to the other.
+	 * @hide
+	 */
+	public static final String LAUNCHER_ENDLESS_LOOP = "launcher_endless_loop";
+
         /**
          * Receive incoming SIP calls?
          * 0 = no
