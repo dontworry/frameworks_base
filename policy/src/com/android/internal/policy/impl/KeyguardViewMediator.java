@@ -115,6 +115,7 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
     private static final int KEYGUARD_DONE_AUTHENTICATING = 11;
     private static final int SET_HIDDEN = 12;
     private static final int KEYGUARD_TIMEOUT = 13;
+    private static final int SET_TORCH = 14;
 
     /**
      * The default amount of time we stay awake (used for all key input)
@@ -148,6 +149,8 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
     private StatusBarManager mStatusBarManager;
     private boolean mShowLockIcon;
     private boolean mShowingLockIcon;
+    private boolean mTorchEnabled = true;
+    private boolean mTorchStateChanged;
 
     private boolean mSystemReady;
 
@@ -257,6 +260,8 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
         mContext = context;
 
         mRealPowerManager = powerManager;
+	mTorchEnabled = false;
+	mTorchStateChanged = false;
         mPM = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         mWakeLock = mPM.newWakeLock(
                 PowerManager.FULL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP,
@@ -479,9 +484,44 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
                 mHidden = isHidden;
                 adjustUserActivityLocked();
                 adjustStatusBarLocked();
+		resetTorchState();
             }
         }
     }
+
+    /** Lockscreen Torch from MIUI  - sbrissen   */
+    private void handleSetTorch(boolean enable){      
+      try{
+	if(!mTorchStateChanged){
+	  mTorchEnabled = (Settings.System.getInt(mContext.getContentResolver(),"torch_state", 0) == 1);
+	  mTorchStateChanged = true;
+	}else if(mTorchEnabled != enable){
+	  mTorchEnabled = enable; 
+	  Intent intent = new Intent("net.cactii.flash2.TOGGLE_FLASHLIGHT");
+	  intent.putExtra("net.cactii.flash2.EXTRA_DISABLE_NOTIFICATION",true);
+	  mContext.sendBroadcast(intent);
+	  mKeyguardViewManager.enableTorchCover(enable);
+	}
+      }catch(Exception e){}	
+    }
+	
+    private void resetTorchState(){
+      if(mTorchStateChanged){
+	handleSetTorch(false);
+      }
+    }	
+
+    public void setTorch(boolean enable){
+      int trch = 0;
+      if(mScreenOn){
+	mHandler.removeMessages(SET_TORCH);
+	if(enable){
+	  trch = 1;
+	}
+	Message msg = mHandler.obtainMessage(SET_TORCH,trch,0);
+	mHandler.sendMessage(msg);
+      }
+    }      
 
     /**
      * Used by PhoneWindowManager to enable the keyguard due to a user activity timeout.
@@ -786,7 +826,12 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
 
 		mLockscreenTimeout = Settings.System.getInt(resolver, Settings.System.LOCKSCREEN_TIMEOUT_PREF, 5000);
 
+<<<<<<< HEAD
 		pokeWakelock(mKeyboardOpen ?
+=======
+  
+	pokeWakelock(mKeyboardOpen ?
+>>>>>>> 3f4a9c0... weather widget formatting, miui lockscreen torch via home button
                AWAKE_INTERVAL_DEFAULT_KEYBOARD_OPEN_MS : mLockscreenTimeout);
     }
 
@@ -896,6 +941,9 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
                 case KEYGUARD_TIMEOUT:
                     doKeyguard();
                     break;
+		case SET_TORCH:
+		    handleSetTorch(msg.arg1 != 0);
+		    break;
             }
         }
     };
@@ -1003,6 +1051,7 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
             } catch (RemoteException e) {
             }
             mShowKeyguardWakeLock.release();
+	    mTorchStateChanged = false;
         }
     }
 
@@ -1028,6 +1077,7 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
             mShowing = false;
             adjustUserActivityLocked();
             adjustStatusBarLocked();
+	    resetTorchState();
         }
     }
 
@@ -1135,6 +1185,7 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
         synchronized (KeyguardViewMediator.this) {
             if (DEBUG) Log.d(TAG, "handleNotifyScreenOff");
             mKeyguardViewManager.onScreenTurnedOff();
+	    resetTorchState();
         }
     }
 
