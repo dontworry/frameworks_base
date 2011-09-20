@@ -826,12 +826,8 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
 
 		mLockscreenTimeout = Settings.System.getInt(resolver, Settings.System.LOCKSCREEN_TIMEOUT_PREF, 5000);
 
-<<<<<<< HEAD
-		pokeWakelock(mKeyboardOpen ?
-=======
-  
+
 	pokeWakelock(mKeyboardOpen ?
->>>>>>> 3f4a9c0... weather widget formatting, miui lockscreen torch via home button
                AWAKE_INTERVAL_DEFAULT_KEYBOARD_OPEN_MS : mLockscreenTimeout);
     }
 
