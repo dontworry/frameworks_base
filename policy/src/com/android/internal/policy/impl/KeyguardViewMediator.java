@@ -260,8 +260,10 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
         mContext = context;
 
         mRealPowerManager = powerManager;
-	mTorchEnabled = false;
+
+        mTorchEnabled = false;
 	mTorchStateChanged = false;
+
         mPM = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         mWakeLock = mPM.newWakeLock(
                 PowerManager.FULL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP,
@@ -502,14 +504,14 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
 	  mContext.sendBroadcast(intent);
 	  mKeyguardViewManager.enableTorchCover(enable);
 	}
-      }catch(Exception e){}	
+      }catch(Exception e){}  
     }
-	
+  
     private void resetTorchState(){
       if(mTorchStateChanged){
 	handleSetTorch(false);
       }
-    }	
+    }  
 
     public void setTorch(boolean enable){
       int trch = 0;
@@ -937,8 +939,8 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
                 case KEYGUARD_TIMEOUT:
                     doKeyguard();
                     break;
-		case SET_TORCH:
-		    handleSetTorch(msg.arg1 != 0);
+    		case SET_TORCH:
+	            handleSetTorch(msg.arg1 != 0);
 		    break;
             }
         }
@@ -1047,7 +1049,6 @@ public class KeyguardViewMediator implements KeyguardViewCallback,
             } catch (RemoteException e) {
             }
             mShowKeyguardWakeLock.release();
-	    mTorchStateChanged = false;
         }
     }
 
