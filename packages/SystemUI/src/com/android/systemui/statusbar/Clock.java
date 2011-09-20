@@ -61,16 +61,10 @@ public class Clock extends TextView {
     private static final int AM_PM_STYLE_GONE = 2;
 
     private static int AM_PM_STYLE = AM_PM_STYLE_GONE;
-<<<<<<< HEAD
-	
-	private int mClockStyle;
-    private int mClockColor;
-=======
 
     private int mAmPmStyle;
 
     private boolean mShowClock;
->>>>>>> 8fc756c... lense bug, weather formatting pt2, statusbar clock position
 
     Handler mHandler;
 
@@ -171,10 +165,6 @@ public class Clock extends TextView {
                 Settings.System.STATUSBAR_CLOCK_STYLE, 2));
         mCalendar.setTimeInMillis(System.currentTimeMillis());
         setText(getSmallTime());
-<<<<<<< HEAD
-		updateSettings();	
-=======
->>>>>>> 8fc756c... lense bug, weather formatting pt2, statusbar clock position
     }
 
     private final CharSequence getSmallTime() {
@@ -262,11 +252,7 @@ public class Clock extends TextView {
     protected void updateSettings() {
         ContentResolver resolver = mContext.getContentResolver();
 
-<<<<<<< HEAD
-		mClockColor = Settings.System.getInt(resolver, Settings.System.STATUSBAR_CLOCK_COLOR, -1);
-=======
 	int mClockColor = Settings.System.getInt(resolver, Settings.System.STATUSBAR_CLOCK_COLOR, -1);
->>>>>>> 8fc756c... lense bug, weather formatting pt2, statusbar clock position
 
 		setTextColor(mClockColor);
 
@@ -278,19 +264,17 @@ public class Clock extends TextView {
          int mClockStyle = Settings.System.getInt(resolver, Settings.System.STATUSBAR_CLOCK_STYLE, 2);
 	 int mClockPosition = (Settings.System.getInt(resolver, Settings.System.STATUSBAR_CLOCK_POSITION, 0));
 
-<<<<<<< HEAD
 		if(mClockStyle == 3) {
 			setVisibility(View.GONE);
 		}else if (mClockStyle != AM_PM_STYLE) {
 	        AM_PM_STYLE = mClockStyle;
 	        setVisibility(View.VISIBLE);
 	        mClockFormatString = "";
-=======
+
 	if(mClockStyle == 3 || mClockPosition == 1 || mClockPosition == 2)
 	    setVisibility(View.GONE);
         else
             setVisibility(View.VISIBLE);
->>>>>>> 8fc756c... lense bug, weather formatting pt2, statusbar clock position
 
     }
 }

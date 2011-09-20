@@ -28,8 +28,7 @@
     android:descendantFocusability="afterDescendants"
     android:id="@+id/statusbar_view"
     >
-<<<<<<< HEAD
-=======
+
     <LinearLayout
 	  android:id="@+id/center"
 	  android:gravity="center_horizontal"
@@ -49,16 +48,12 @@
 	      android:layout_centerInParent="true"/>
     </LinearLayout>
             
->>>>>>> 8fc756c... lense bug, weather formatting pt2, statusbar clock position
 
     <LinearLayout android:id="@+id/icons"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
-<<<<<<< HEAD
-            
-=======
-	<LinearLayout
+    <LinearLayout
 	  android:id="@+id/left"
 	  android:gravity="center"
 	  android:orientation="horizontal"
@@ -73,8 +68,7 @@
 	      android:layout_height="fill_parent"
 	      android:singleLine="true"
 	      android:layout_weight="1.0" />
-	</LinearLayout> 
->>>>>>> 8fc756c... lense bug, weather formatting pt2, statusbar clock position
+    </LinearLayout> 
         <com.android.systemui.statusbar.IconMerger android:id="@+id/notificationIcons"
             android:layout_width="wrap_content"
             android:layout_weight="1"
@@ -82,23 +76,13 @@
             android:layout_alignParentLeft="true"
             android:paddingLeft="6dip"
             android:gravity="center_vertical"
-<<<<<<< HEAD
-            android:orientation="horizontal"/>  
-            
-=======
             android:orientation="horizontal"/> 
 
->>>>>>> 8fc756c... lense bug, weather formatting pt2, statusbar clock position
         <LinearLayout android:id="@+id/statusIcons"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-<<<<<<< HEAD
-			android:paddingLeft="3dip"
-            android:paddingRight="3dip"
-=======
             android:paddingRight="1dip"
->>>>>>> 8fc756c... lense bug, weather formatting pt2, statusbar clock position
             android:gravity="center_vertical"
             android:orientation="horizontal"/>    
 
