@@ -99,7 +99,7 @@ public class Clock extends TextView {
 
     public Clock(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-		
+
         mHandler = new Handler();
         SettingsObserver settingsObserver = new SettingsObserver(mHandler);
         settingsObserver.observe();
@@ -244,17 +244,17 @@ public class Clock extends TextView {
                 return formatted;
             }
         }
- 
+
         return result;
-		
-	}
+
+    }
 
     protected void updateSettings() {
         ContentResolver resolver = mContext.getContentResolver();
 
 	int mClockColor = Settings.System.getInt(resolver, Settings.System.STATUSBAR_CLOCK_COLOR, -1);
 
-		setTextColor(mClockColor);
+	setTextColor(mClockColor);
 
         mClockFormatString = "";
         if (mAttached) {
@@ -263,13 +263,6 @@ public class Clock extends TextView {
 
          int mClockStyle = Settings.System.getInt(resolver, Settings.System.STATUSBAR_CLOCK_STYLE, 2);
 	 int mClockPosition = (Settings.System.getInt(resolver, Settings.System.STATUSBAR_CLOCK_POSITION, 0));
-
-		if(mClockStyle == 3) {
-			setVisibility(View.GONE);
-		}else if (mClockStyle != AM_PM_STYLE) {
-	        AM_PM_STYLE = mClockStyle;
-	        setVisibility(View.VISIBLE);
-	        mClockFormatString = "";
 
 	if(mClockStyle == 3 || mClockPosition == 1 || mClockPosition == 2)
 	    setVisibility(View.GONE);
