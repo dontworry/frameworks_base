@@ -52,6 +52,7 @@ import android.os.Environment;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import com.android.internal.policy.impl.LockscreenInfo;
+import com.android.internal.policy.impl.MusicWidget;
 
 import java.util.Date;
 import java.io.File;
@@ -91,7 +92,9 @@ class LockScreen extends LinearLayout implements KeyguardScreen, KeyguardUpdateM
     private RelativeLayout mMainLayout;
     private LinearLayout mBoxLayout;
     private LockscreenInfo mLockscreenInfo;
-    private RelativeLayout mRoot;
+    private LinearLayout mMusicLayoutBottom;
+    private LinearLayout mMusicLayoutTop;
+    private MusicWidget mMusicWidget;    
 
     private ImageButton mPlayIcon;
     private ImageButton mPauseIcon;
@@ -132,7 +135,7 @@ class LockScreen extends LinearLayout implements KeyguardScreen, KeyguardUpdateM
             Settings.System.LOCKSCREEN_BATTERY_INFO, 0) == 1);
 
     private boolean mLockMusicControls = (Settings.System.getInt(mContext.getContentResolver(),
-            Settings.System.LOCKSCREEN_MUSIC_CONTROLS, 1) == 1);
+            Settings.System.LOCKSCREEN_MUSIC_CONTROLS, 0) == 1);
 
     private boolean mLockAlwaysMusic = (Settings.System.getInt(mContext.getContentResolver(),
             Settings.System.LOCKSCREEN_ALWAYS_MUSIC_CONTROLS, 0) == 1);
@@ -150,6 +153,15 @@ class LockScreen extends LinearLayout implements KeyguardScreen, KeyguardUpdateM
 
     private int mClockAlign = (Settings.System.getInt(mContext.getContentResolver(),
             Settings.System.LOCKSCREEN_CLOCK_ALIGN, 0));
+
+    private int mSgsMusicLoc = (Settings.System.getInt(mContext.getContentResolver(),
+            Settings.System.LOCKSCREEN_SGSMUSIC_CONTROLS_LOC, 1));
+
+    private boolean mSgsMusicControls = (Settings.System.getInt(mContext.getContentResolver(),
+            Settings.System.LOCKSCREEN_SGSMUSIC_CONTROLS, 1) == 1);
+
+    private boolean mAlwaysSgsMusicControls = (Settings.System.getInt(mContext.getContentResolver(),
+            Settings.System.LOCKSCREEN_ALWAYS_SGSMUSIC_CONTROLS, 0) == 1);
 
     private boolean mUseRotaryLockscreen = (mLockscreenStyle == 1);
 
@@ -313,15 +325,25 @@ class LockScreen extends LinearLayout implements KeyguardScreen, KeyguardUpdateM
 	mLockscreenWallpaperUpdater = new LockscreenWallpaperUpdater(context);
 	mLockscreenWallpaperUpdater.setVisibility(View.VISIBLE);
 	mMainLayout.addView(mLockscreenWallpaperUpdater,0);
-
 	
 	mLockscreenInfo = new LockscreenInfo(context,updateMonitor,configuration,lockPatternUtils);
 	mBoxLayout = (LinearLayout) findViewById(R.id.lock_box);
 	
+	mMusicWidget = new MusicWidget(context,callback,updateMonitor);
+	mMusicLayoutBottom = (LinearLayout) findViewById(R.id.musicwidget_bottom);
+	mMusicLayoutTop = (LinearLayout) findViewById(R.id.musicwidget_top);
+
+	if(mSgsMusicLoc == 1 && mSgsMusicControls){
+	  mMusicWidget.setTopLayout();
+	  mMusicLayoutTop.addView(mMusicWidget);
+	}else if(mSgsMusicLoc == 2 && mSgsMusicControls){
+	  mMusicWidget.setBottomLayout();
+	  mMusicLayoutBottom.addView(mMusicWidget);
+	}
+
 	if(mShowingInfo){
 	  mBoxLayout.addView(mLockscreenInfo);
-	}
-	
+	}	
 
         mEmergencyCallText = (TextView) findViewById(R.id.emergencyCallText);
         mEmergencyCallButton = (Button) findViewById(R.id.emergencyCallButton);
@@ -406,10 +428,12 @@ class LockScreen extends LinearLayout implements KeyguardScreen, KeyguardUpdateM
         if(mRotaryHideArrows)
             mRotarySelector.hideArrows(true);
 
+	if(!mUseRotaryRevLockscreen)
+	    mRotaryUnlockDown = false;	    
+
         //hide most items when we are in potrait lense mode
         mLensePortrait=(mUseLenseSquareLockscreen && mCreationOrientation != Configuration.ORIENTATION_LANDSCAPE);
         if (mLensePortrait){
-	    mRotaryUnlockDown = false;
             setLenseWidgetsVisibility(View.INVISIBLE);
 	}
 
@@ -554,7 +578,16 @@ class LockScreen extends LinearLayout implements KeyguardScreen, KeyguardUpdateM
         // cancels the grab.
         if (grabbedState != SlidingTab.OnTriggerListener.NO_HANDLE) {
             mCallback.pokeWakelock();
-        }
+        }else{
+	    if(mSgsMusicControls){
+		if(am.isMusicActive() || mAlwaysSgsMusicControls)
+		  mMusicWidget.setVisibility(View.VISIBLE);
+		  mMusicWidget.setControllerVisibility(true,mMusicWidget.isControllerShowing());	
+		}else if(!am.isMusicActive()){
+		  mMusicWidget.setVisibility(View.GONE);
+		}
+	}
+	
     }
 
     /**
@@ -934,7 +967,9 @@ class LockScreen extends LinearLayout implements KeyguardScreen, KeyguardUpdateM
 
     /** {@inheritDoc} */
     public void onPause() {
-
+      if(mSgsMusicControls){
+	mMusicWidget.onPause();
+      }
     }
 
     /** {@inheritDoc} */
@@ -943,6 +978,15 @@ class LockScreen extends LinearLayout implements KeyguardScreen, KeyguardUpdateM
         mLockPatternUtils.updateEmergencyCallButtonState(mEmergencyCallButton);
 	mLockscreenWallpaperUpdater.onResume();
 	mLockscreenInfo.onResume();
+      if(mSgsMusicControls){
+	mMusicWidget.onResume();
+	if(am.isMusicActive() || mAlwaysSgsMusicControls){
+	  mMusicWidget.setVisibility(View.VISIBLE);
+	  mMusicWidget.setControllerVisibility(true,mMusicWidget.isControllerShowing());	
+	}else if(!am.isMusicActive()){
+	  mMusicWidget.setVisibility(View.GONE);
+	}
+      }
     }
 
     /** {@inheritDoc} */
@@ -953,6 +997,7 @@ class LockScreen extends LinearLayout implements KeyguardScreen, KeyguardUpdateM
         mCallback = null;
         mLockscreenWallpaperUpdater.cleanUp();
 	mLockscreenInfo.cleanUp();
+	mMusicWidget.cleanUp();
     }
 
     /** {@inheritDoc} */
