@@ -21,7 +21,6 @@
   state of the device, as well as instructions on how to get past it
   depending on the state of the device.  It is the same for landscape
   and portrait.-->
-  
  <FrameLayout android:id="@+id/root" 
     android:layout_width="fill_parent" 
     android:layout_height="fill_parent"
@@ -34,27 +33,14 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal" >
     
-    <RelativeLayout android:id="@+id/wallpaper_panel" android:layout_width="fill_parent" android:layout_height="fill_parent">
-<<<<<<< HEAD
-    <!-- left side -->
-    <RelativeLayout
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1.0"
-            android:layout_marginLeft="24dip"
-            android:gravity="left">
-
-        <TextView
-			android:id="@+id/customMsg"
-=======
- 
+        <RelativeLayout android:id="@+id/wallpaper_panel" android:layout_width="fill_parent" android:layout_height="fill_parent">
     <LinearLayout 
 	android:gravity="top" 
 	android:layout_alignParentTop="true" 
 	android:id="@+id/musicwidget_top" 
 	android:layout_width="fill_parent" 
 	android:layout_height="wrap_content" />
-    
+	
     <TextView
         android:id="@+id/customMsg"
         android:layout_width="wrap_content"
@@ -109,7 +95,6 @@
         >
 
         <TextView android:id="@+id/timeDisplay"
->>>>>>> af1a62e... sgs music widget, other PP1.4 stuff -brain fail
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
@@ -134,14 +119,10 @@
             android:textSize="22sp"
             android:layout_marginLeft="8dip"
             android:textAppearance="?android:attr/textAppearanceMedium"
-<<<<<<< HEAD
-		    android:visibility="gone"
-=======
             android:shadowColor="#C0000000"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="3.0"
->>>>>>> af1a62e... sgs music widget, other PP1.4 stuff -brain fail
             />
 
     </com.android.internal.widget.DigitalClock>
@@ -185,20 +166,6 @@
 	android:layout_below="@id/date"
 	/>
 
-<<<<<<< HEAD
-        <TextView
-            android:id="@+id/screenLocked"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/status2"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:gravity="center"
-            android:layout_marginTop="12dip"
-            android:drawablePadding="4dip"
-            />
-			
-		<ImageButton
-=======
     <TextView
         android:id="@+id/screenLocked"
         android:layout_width="wrap_content"
@@ -208,6 +175,14 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_marginTop="12dip"
         android:drawablePadding="4dip"
+        />
+    <com.android.internal.widget.SlidingTab
+        android:id="@+id/tab_selector2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="175dip"
         />
 
     <com.android.internal.widget.SlidingTab
@@ -235,7 +210,6 @@
         />
 	
 	      <ImageButton
->>>>>>> af1a62e... sgs music widget, other PP1.4 stuff -brain fail
             android:id="@+id/musicControlPlay"
             android:src="@drawable/ic_media_play"
             android:layout_width="wrap_content"
@@ -285,35 +259,6 @@
             android:background="@color/transparent"
             android:visibility="gone"
 	      />
-<<<<<<< HEAD
-
-
-    </RelativeLayout>
-
-    <!-- right side -->
-    <com.android.internal.widget.SlidingTab
-        android:id="@+id/tab_selector"
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginRight="80dip"
-        />
-
-    <!-- emergency call button shown when sim is PUKd and tab_selector is
-         hidden -->
-    <Button
-        android:id="@+id/emergencyCallButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_emergency"
-        style="@style/Widget.Button.Transparent"
-        android:drawablePadding="8dip"
-        android:layout_marginRight="80dip"
-        android:visibility="gone"
-        />
-      </RelativeLayout>
-</LinearLayout>
-=======
       	<LinearLayout 
 	    android:gravity="bottom" 
 	    android:layout_alignParentBottom="true" 
@@ -323,4 +268,4 @@
 	    </RelativeLayout>
 </RelativeLayout>
 </FrameLayout>
->>>>>>> af1a62e... sgs music widget, other PP1.4 stuff -brain fail
+

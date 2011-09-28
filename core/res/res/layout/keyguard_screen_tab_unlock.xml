@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- ** ** Copyright 2009, The Android Open Source Project
+<!--
+**
+** Copyright 2009, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License")
 ** you may not use this file except in compliance with the License.
@@ -33,9 +35,6 @@
     android:gravity="center_horizontal" >
     
     <RelativeLayout android:id="@+id/wallpaper_panel" android:layout_width="fill_parent" android:layout_height="fill_parent">
-<<<<<<< HEAD
-
-=======
  
     <LinearLayout 
 	android:gravity="top" 
@@ -44,7 +43,6 @@
 	android:layout_width="fill_parent" 
 	android:layout_height="wrap_content" />
     
->>>>>>> af1a62e... sgs music widget, other PP1.4 stuff -brain fail
     <TextView
         android:id="@+id/customMsg"
         android:layout_width="wrap_content"
@@ -71,7 +69,7 @@
         android:ellipsize="marquee"
         android:gravity="right|bottom"
         android:textAppearance="?android:attr/textAppearanceMedium"
-		android:visibility="gone"
+	android:visibility="gone"
         />
 
     <!-- "emergency calls only" shown when sim is missing or PUKd -->
@@ -205,7 +203,7 @@
         android:visibility="gone"
         />
 	
-	    <ImageButton
+	      <ImageButton
             android:id="@+id/musicControlPlay"
             android:src="@drawable/ic_media_play"
             android:layout_width="wrap_content"
@@ -254,9 +252,6 @@
             android:layout_toRightOf="@+id/musicControlPause"
             android:background="@color/transparent"
             android:visibility="gone"
-<<<<<<< HEAD
-              />
-=======
 	      />
       	<LinearLayout 
 	    android:gravity="bottom" 
@@ -264,7 +259,6 @@
 	    android:id="@+id/musicwidget_bottom" 
 	    android:layout_width="fill_parent" 
 	    android:layout_height="wrap_content" />
->>>>>>> af1a62e... sgs music widget, other PP1.4 stuff -brain fail
 	    </RelativeLayout>
 </RelativeLayout>
 </FrameLayout>
