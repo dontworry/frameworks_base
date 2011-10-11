@@ -98,7 +98,7 @@ class PowerManagerService extends IPowerManager.Stub
     // The short keylight delay comes from secure settings; this is the default.
     private static final int SHORT_KEYLIGHT_DELAY_DEFAULT = 6000; // t+6 sec
     private static final int MEDIUM_KEYLIGHT_DELAY = 15000;       // t+15 sec
-    private static final int LONG_KEYLIGHT_DELAY = 30000;        // t+6 sec
+    private static final int LONG_KEYLIGHT_DELAY = 6000;        // t+6 sec
     private static final int LONG_DIM_TIME = 7000;              // t+N-5 sec
 
     // How long to wait to debounce light sensor changes.
@@ -111,7 +111,7 @@ class PowerManagerService extends IPowerManager.Stub
     private static final float PROXIMITY_THRESHOLD = 5.0f;
 
     // Cached secure settings; see updateSettingsValues()
-    private int mShortKeylightDelay; //= Settings.System.getInt(mContext.getContentResolver(),Settings.System.KEYLIGHT_TIMEOUT,SHORT_KEYLIGHT_DELAY_DEFAULT);
+    private int mShortKeylightDelay = SHORT_KEYLIGHT_DELAY_DEFAULT;
 
     // Default timeout for screen off, if not found in settings database = 15 seconds.
     private static final int DEFAULT_SCREEN_OFF_TIMEOUT = 15000;
@@ -246,6 +246,7 @@ class PowerManagerService extends IPowerManager.Stub
     private int mWarningSpewThrottleCount;
     private long mWarningSpewThrottleTime;
     private int mAnimationSetting = ANIM_SETTING_OFF;
+    private int mKeyTimeout;
 
     // Must match with the ISurfaceComposer constants in C++.
     private static final int ANIM_SETTING_ON = 0x01;
@@ -264,6 +265,9 @@ class PowerManagerService extends IPowerManager.Stub
     private native void nativeInit();
     private native void nativeSetPowerState(boolean screenOn, boolean screenBright);
     private native void nativeStartSurfaceFlingerAnimation(int mode);
+
+    private boolean mScreenOffAnimation;
+    private boolean mScreenOnAnimation;
 
     /*
     static PrintStream mLog;
@@ -462,6 +466,7 @@ class PowerManagerService extends IPowerManager.Stub
                 final float windowScale = getFloat(WINDOW_ANIMATION_SCALE, 1.0f);
                 final float transitionScale = getFloat(TRANSITION_ANIMATION_SCALE, 1.0f);
                 mAnimationSetting = 0;
+<<<<<<< HEAD
                 if (windowScale > 0.1f) {
                     mAnimationSetting |= ANIM_SETTING_OFF;
                 }
@@ -469,6 +474,16 @@ class PowerManagerService extends IPowerManager.Stub
                     // Uncomment this if you want the screen-on animation.
                     mAnimationSetting |= ANIM_SETTING_ON;
                 }
+=======
+
+                mScreenOffAnimation = true;
+                if (mScreenOffAnimation)
+                    mAnimationSetting |= ANIM_SETTING_OFF;
+
+                mScreenOnAnimation = true;
+                if (mScreenOnAnimation)
+                    mAnimationSetting |= ANIM_SETTING_ON;
+>>>>>>> 91f40aa... derp and clean up
             }
         }
     }
@@ -639,7 +654,6 @@ class PowerManagerService extends IPowerManager.Stub
                     updateSettingsValues();
                 }
             });
-
         updateSettingsValues();
 
         synchronized (mHandlerThread) {
@@ -1202,7 +1216,7 @@ class PowerManagerService extends IPowerManager.Stub
                     switch (nextState)
                     {
                         case SCREEN_BRIGHT:
-			    when = now + mKeylightDelay;
+                            when = now + mKeylightDelay;
                             break;
                         case SCREEN_DIM:
                             if (mDimDelay >= 0) {
@@ -2590,32 +2604,20 @@ class PowerManagerService extends IPowerManager.Stub
      *      mScreenOffDelay
      * */
     private void setScreenOffTimeoutsLocked() {
-        mShortKeylightDelay = Settings.System.getInt(
-                mContext.getContentResolver(),
-                Settings.System.KEYLIGHT_TIMEOUT,
-                SHORT_KEYLIGHT_DELAY_DEFAULT);
-	mKeylightDelay = mShortKeylightDelay;
-
         if ((mPokey & POKE_LOCK_SHORT_TIMEOUT) != 0) {
             mKeylightDelay = mShortKeylightDelay;  // Configurable via secure settings
             mDimDelay = -1;
             mScreenOffDelay = 0;
         } else if ((mPokey & POKE_LOCK_MEDIUM_TIMEOUT) != 0) {
-            mKeylightDelay = mShortKeylightDelay;
-	    //mKeylightDelay = MEDIUM_KEYLIGHT_DELAY;
+            mKeylightDelay = MEDIUM_KEYLIGHT_DELAY;
             mDimDelay = -1;
             mScreenOffDelay = 0;
-	}else if ((mPokey & 0x10) != 0){
-	    mKeylightDelay = mShortKeylightDelay;
-	    mDimDelay = -1;
-	    mScreenOffDelay = 0x4e20;
         } else {
             int totalDelay = mScreenOffTimeoutSetting;
             if (totalDelay > mMaximumScreenOffTimeout) {
                 totalDelay = mMaximumScreenOffTimeout;
             }
-            mKeylightDelay = mShortKeylightDelay;
-	    //mKeylightDelay = LONG_KEYLIGHT_DELAY;
+            mKeylightDelay = LONG_KEYLIGHT_DELAY;
             if (totalDelay < 0) {
                 mScreenOffDelay = Integer.MAX_VALUE;
             } else if (mKeylightDelay < totalDelay) {
@@ -2645,17 +2647,15 @@ class PowerManagerService extends IPowerManager.Stub
      * on subsequent changes to secure settings.
      */
     private void updateSettingsValues() {
-
         /*mShortKeylightDelay = Settings.Secure.getInt(
                 mContext.getContentResolver(),
                 Settings.Secure.SHORT_KEYLIGHT_DELAY_MS,
-                SHORT_KEYLIGHT_DELAY_DEFAULT); */
+                SHORT_KEYLIGHT_DELAY_DEFAULT);*/
         mShortKeylightDelay = Settings.System.getInt(
                 mContext.getContentResolver(),
                 Settings.System.KEYLIGHT_TIMEOUT,
                 SHORT_KEYLIGHT_DELAY_DEFAULT);
-	
-         Slog.i(TAG, "updateSettingsValues(): mShortKeylightDelay now " + mShortKeylightDelay);
+        Slog.i(TAG, "updateSettingsValues(): mShortKeylightDelay now " + mShortKeylightDelay);
     }
 
     private class LockList extends ArrayList<WakeLock>
