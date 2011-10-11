@@ -1182,6 +1182,7 @@ public final class Settings {
         public static final String LIGHT_SENSOR_CUSTOM = "light_sensor_custom";
         public static final String LIGHT_SCREEN_DIM = "light_screen_dim";
         public static final String OVERSCROLL_EFFECT = "overscroll_effect";
+<<<<<<< HEAD
     	public static final String OVERSCROLL_WEIGHT = "overscroll_weight";
 	    public static final String OVERSCROLL_COLOR = "overscroll_color";
 	    public static final String CUSTOM_SEARCH_APP = "custom_search_app";
@@ -1203,6 +1204,32 @@ public final class Settings {
 	    public static final String LOCKSCREEN_CUSTOM_APP_TOGGLE = "lockscreen_custom_app_toggle";
 
 
+=======
+	public static final String OVERSCROLL_WEIGHT = "overscroll_weight";
+	public static final String OVERSCROLL_COLOR = "overscroll_color";
+	public static final String CUSTOM_SEARCH_APP = "custom_search_app";
+	public static final String LOCKSCREEN_ROTARY_UNLOCK_DOWN = "lockscreen_rotary_unlock_down";
+	public static final String KEY_CITY_NAME = "CITY_NAME";
+	public static final String KEY_UPDATED_TIME = "aw_daemon_service_key_updated_time";
+	public static final String KEY_CURRENT_TEMP = "aw_daemon_service_key_current_temp";
+	public static final String KEY_TEMP_SCALE = "aw_daemon_service_key_temp_scale";
+	public static final String KEY_ICON_NUM = "aw_daemon_service_key_icon_num";
+	public static final String LOCKSCREEN_CLOCK_ALIGN = "lockscreen_clock_align";
+	public static final String LOCKSCREEN_SHOW_INFO = "lockscreen_show_info";
+	public static final String KEY_LOCATION_CODE = "aw_daemon_service_key_loc_code";
+	public static final String KEY_HIGH_TEMP = "aw_daemon_service_key_high_temp";
+	public static final String KEY_LOW_TEMP = "aw_daemon_service_key_low_temp";
+	public static final String KEY_WEATHER_TEXT = "aw_daemon_service_key_weather_text";
+	public static final String KEY_AUTO_REFRESH_INTERVAL = "aw_daemon_service_key_autorefresh_interval";
+	public static final String KEY_DAEMON_ON_OFF = "aw_daemon_service_key_service_status";
+	public static final String NUM_RECENT_APPS = "num_recent_apps";
+	public static final String LOCKSCREEN_CUSTOM_APP_TOGGLE = "lockscreen_custom_app_toggle";
+	public static final String LOCKSCREEN_MISSED_EVENT = "lockscreen_missed_event";
+	public static final String LOCKSCREEN_MISSED_EVENT_TYPE = "lockscreen_missed_event_type";	
+	public static final String MISSED_PHONE_EVENT = "missed_phone_event";
+	public static final String MISSED_MMS_EVENT = "missed_mms_event";
+	public static final String MISSED_EMAIL_EVENT = "missed_email_event";
+>>>>>>> efbcdbf... missed event notifs
 
         public static final String[] LOCKSCREEN_CUSTOM_RING_APP_ACTIVITIES = new String[] {
 	    "lockscreen_custom_app_activity_1",
