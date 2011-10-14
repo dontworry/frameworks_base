@@ -326,6 +326,7 @@ public class StatusBarView extends FrameLayout {
 		mBatteryIndicator.setVisibility(GONE);
 		mBatteryChargingIndicator.setVisibility(GONE);
 	}
-    }
+
+      }
 }
 
