@@ -463,18 +463,7 @@ class PowerManagerService extends IPowerManager.Stub
                 // recalculate everything
                 setScreenOffTimeoutsLocked();
 
-                final float windowScale = getFloat(WINDOW_ANIMATION_SCALE, 1.0f);
-                final float transitionScale = getFloat(TRANSITION_ANIMATION_SCALE, 1.0f);
                 mAnimationSetting = 0;
-<<<<<<< HEAD
-                if (windowScale > 0.1f) {
-                    mAnimationSetting |= ANIM_SETTING_OFF;
-                }
-                if (transitionScale > 0.1f) {
-                    // Uncomment this if you want the screen-on animation.
-                    mAnimationSetting |= ANIM_SETTING_ON;
-                }
-=======
 
                 mScreenOffAnimation = true;
                 if (mScreenOffAnimation)
@@ -483,7 +472,6 @@ class PowerManagerService extends IPowerManager.Stub
                 mScreenOnAnimation = true;
                 if (mScreenOnAnimation)
                     mAnimationSetting |= ANIM_SETTING_ON;
->>>>>>> 91f40aa... derp and clean up
             }
         }
     }
