@@ -2645,14 +2645,6 @@ class PowerManagerService extends IPowerManager.Stub
      * on subsequent changes to secure settings.
      */
     private void updateSettingsValues() {
-<<<<<<< HEAD
-	
-        mShortKeylightDelay = Settings.Secure.getInt(
-                mContext.getContentResolver(),
-                Settings.Secure.SHORT_KEYLIGHT_DELAY_MS,
-                SHORT_KEYLIGHT_DELAY_DEFAULT);
-        // Slog.i(TAG, "updateSettingsValues(): mShortKeylightDelay now " + mShortKeylightDelay);
-=======
 
         /*mShortKeylightDelay = Settings.Secure.getInt(
                 mContext.getContentResolver(),
@@ -2664,7 +2656,6 @@ class PowerManagerService extends IPowerManager.Stub
                 SHORT_KEYLIGHT_DELAY_DEFAULT);
 	
          Slog.i(TAG, "updateSettingsValues(): mShortKeylightDelay now " + mShortKeylightDelay);
->>>>>>> ca969f3... RingSelector widget commits from CM, failed custom touchkeytime
     }
 
     private class LockList extends ArrayList<WakeLock>
