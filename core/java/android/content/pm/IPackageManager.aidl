@@ -37,7 +37,11 @@ import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
+<<<<<<< HEAD
 import android.content.pm.ThemeInfo;
+=======
+//import android.content.pm.ThemeInfo;
+>>>>>>> aef586e... 2.3.7 merge
 import android.net.Uri;
 import android.content.IntentSender;
 
@@ -112,8 +116,12 @@ interface IPackageManager {
     List<ResolveInfo> queryIntentServices(in Intent intent,
             String resolvedType, int flags);
 
+<<<<<<< HEAD
     List<PackageInfo> getInstalledThemePackages();
 
+=======
+   // List<PackageInfo> getInstalledThemePackages();
+>>>>>>> aef586e... 2.3.7 merge
     /**
      * This implements getInstalledPackages via a "last returned row"
      * mechanism that is not exposed in the API. This is to get around the IPC
