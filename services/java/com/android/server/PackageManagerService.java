@@ -2400,21 +2400,14 @@ class PackageManagerService extends IPackageManager.Stub {
         return list;
     }
 
-<<<<<<< HEAD
-public List<PackageInfo> getInstalledThemePackages() {
-=======
     public List<PackageInfo> getInstalledThemePackages() {
->>>>>>> aef586e... 2.3.7 merge
         // Returns a list of theme APKs.
         ArrayList<PackageInfo> finalList = new ArrayList<PackageInfo>();
         List<PackageInfo> installedPackagesList = new ArrayList<PackageInfo>();
         PackageInfo lastItem = null;
         ParceledListSlice<PackageInfo> slice;
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> aef586e... 2.3.7 merge
+        
         do {
             final String lastKey = lastItem != null ? lastItem.packageName : null;
             slice = getInstalledPackages(0, lastKey);
@@ -2424,18 +2417,11 @@ public List<PackageInfo> getInstalledThemePackages() {
         Iterator<PackageInfo> i = installedPackagesList.iterator();
         while (i.hasNext()) {
             final PackageInfo pi = i.next();
-<<<<<<< HEAD
             if (pi != null && pi.isThemeApk) {
                 finalList.add(pi);
             }
         }
-=======
-            if (pi != null){ //&& pi.isThemeApk) {
-                finalList.add(pi);
-            }
-        }
 
->>>>>>> aef586e... 2.3.7 merge
         return finalList;
     }
 
