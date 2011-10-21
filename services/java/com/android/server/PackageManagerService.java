@@ -2406,7 +2406,6 @@ class PackageManagerService extends IPackageManager.Stub {
         List<PackageInfo> installedPackagesList = new ArrayList<PackageInfo>();
         PackageInfo lastItem = null;
         ParceledListSlice<PackageInfo> slice;
-
         
         do {
             final String lastKey = lastItem != null ? lastItem.packageName : null;
@@ -2421,7 +2420,6 @@ class PackageManagerService extends IPackageManager.Stub {
                 finalList.add(pi);
             }
         }
-
         return finalList;
     }
 

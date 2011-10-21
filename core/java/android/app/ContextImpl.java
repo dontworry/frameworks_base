@@ -2055,7 +2055,7 @@ class ContextImpl extends Context {
             }
         }
 
-      /*  @SuppressWarnings("unchecked")
+        @SuppressWarnings("unchecked")
         @Override
         public List<PackageInfo> getInstalledThemePackages() {
             try {
@@ -2063,10 +2063,9 @@ class ContextImpl extends Context {
             } catch (RemoteException e) {
                 throw new RuntimeException("Package manager has died", e);
             }
-        }*/
+        }
 
-        @SuppressWarnings("unchecked")
-        //@Override
+        @Override
         public List<ApplicationInfo> getInstalledApplications(int flags) {
             try {
                 final List<ApplicationInfo> applicationInfos = new ArrayList<ApplicationInfo>();
