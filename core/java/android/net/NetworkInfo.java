@@ -114,10 +114,7 @@ public class NetworkInfo implements Parcelable {
     private boolean mIsAvailable;
 
     private String mInterfaceName;
-<<<<<<< HEAD
 
-=======
->>>>>>> 9b25c23... CM powerwidgets multiselect and misc
     /**
      * @param type network type
      * @deprecated
