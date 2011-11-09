@@ -72,24 +72,10 @@
         <group gid="diag" />
     </permission>
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 8fe4418... wtf
-    <!-- Permissions to read DRM-protected theme resources. -->
-    <permission name="com.tmobile.permission.ACCESS_DRM_THEME" >
-        <group gid="theme_manager" />
-    </permission>
-
-<<<<<<< HEAD
-=======
     <permission name="android.permission.RAW_AUDIO" >
         <group gid="audio" />
     </permission>
 
->>>>>>> 0ef585c... Merge "Add permission RAW_AUDIO to obtain the "audio" gid." into gingerbread
->>>>>>> 8fe4418... wtf
     <!-- ================================================================== -->
     <!-- ================================================================== -->
     <!-- ================================================================== -->
