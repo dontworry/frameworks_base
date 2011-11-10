@@ -180,7 +180,6 @@ public abstract class ContentResolver {
     public final Context getContext() {
         return mContext;
     }
-	/** @hide */
     protected abstract IContentProvider acquireProvider(Context c, String name);
     /** Providing a default implementation of this, to avoid having to change
      * a lot of other things, but implementations of ContentResolver should

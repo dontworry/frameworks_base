@@ -1686,13 +1686,6 @@ public final class Settings {
         public static final String ACCELEROMETER_ROTATION = "accelerometer_rotation";
 
         /**
-         * Specifies whether to show share dialog after
-         * taking screenshot
-         * @hide
-         */
-        public static final String SHARE_SCREENSHOT = "share_screenshot";
-
-        /**
          * Whether the audible DTMF tones are played by the dialer when dialing. The value is
          * boolean (1 or 0).
          */

@@ -56,5 +56,4 @@ interface IDevicePolicyManager {
     void setActivePasswordState(int quality, int length);
     void reportFailedPasswordAttempt();
     void reportSuccessfulPasswordAttempt();
-    boolean getAllowCamera(in ComponentName admin);
 }

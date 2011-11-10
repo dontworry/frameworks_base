@@ -628,9 +628,4 @@ public class DevicePolicyManager {
             }
         }
     }
-
-// SBRISSEN - SGS2 TW CAM
-    public boolean getAllowCamera(ComponentName admin){
-	return true;
-    }
 }
