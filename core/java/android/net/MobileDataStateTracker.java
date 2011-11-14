@@ -32,9 +32,6 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.text.TextUtils;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-
 /**
  * Track the state of mobile data connectivity. This is done by
  * receiving broadcast intents from the Phone process whenever
@@ -258,7 +255,7 @@ public class MobileDataStateTracker extends NetworkStateTracker {
                                 if (mInterfaceName == null) {
                                     Log.d(TAG, "CONNECTED event did not supply interface name.");
                                 }
-                                mDefaultGatewayAddr = getIpFromString(SystemProperties.get("net.ppp0.remote-ip"));
+                                mDefaultGatewayAddr = intent.getIntExtra(Phone.DATA_GATEWAY_KEY, 0);
                                 if (mDefaultGatewayAddr == 0) {
                                     Log.d(TAG, "CONNECTED event did not supply a default gateway.");
                                 }
@@ -277,24 +274,6 @@ public class MobileDataStateTracker extends NetworkStateTracker {
                 }
             }
         }
-    }
-
-    private int getIpFromString(String ip)
-    {
-        InetAddress inetAddress;
-        try {
-            inetAddress = InetAddress.getByName(ip);
-        } catch (UnknownHostException e) {
-            return -1;
-        }
-        byte[] addrBytes;
-        int addr;
-        addrBytes = inetAddress.getAddress();
-        addr = ((addrBytes[3] & 0xff) << 24)
-                | ((addrBytes[2] & 0xff) << 16)
-                | ((addrBytes[1] & 0xff) << 8)
-                |  (addrBytes[0] & 0xff);
-        return addr;
     }
 
     private void getPhoneService(boolean forceRefresh) {
